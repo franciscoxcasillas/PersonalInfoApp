@@ -13,6 +13,9 @@ struct ContentView: View {
             TitleView()
                 .padding(.bottom, 1)
             ProfileImageView()
+            InfoSectionView()
+            RemoteImageView()
+            ButtonView()
         }
     }
 }
@@ -21,8 +24,6 @@ struct TitleView: View {
     var body: some View {
         Text("Fank Sinatra")
             .font(.custom("Caveat", size: 31))
-            .foregroundColor(.red)
-        
     }
 }
 
@@ -34,7 +35,46 @@ struct ProfileImageView: View {
             .frame(width: 100)
             .clipShape(Circle())
             .shadow(radius: 15)
-            .overlay(Circle().stroke(Color.red, lineWidth: 2))
+            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+    }
+}
+
+struct InfoSectionView: View {
+    var body: some View {
+        VStack {
+            Text("Frank Sinatra was super cool. He made music and was friends with powerful people.")
+                .multilineTextAlignment(.center)
+                .frame(width: 300)
+                .padding()
+            HStack {
+                Image(systemName: "music.microphone")
+                    .foregroundColor(.purple)
+                Image(systemName: "star.fill")
+                    .foregroundColor(.orange)
+                Image(systemName: "medal.fill")
+                    .foregroundColor(.blue)
+            }
+            .padding()
+            
+        }
+    }
+}
+
+struct ButtonView: View {
+    var body: some View {
+        Button(action: {
+            print("Button tapped!")
+        }) {
+            Label("Tap Me!", systemImage: "button.programmable")
+        }
+        .foregroundColor(.red)
+        .font(.headline)
+    }
+}
+
+struct RemoteImageView: View {
+    var body: some View {
+        AsyncImage(url: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Frank_Sinatra_%281957_Pal_Joey_publicity_photo%29.jpg/194px-Frank_Sinatra_%281957_Pal_Joey_publicity_photo%29.jpg"))
     }
 }
 
