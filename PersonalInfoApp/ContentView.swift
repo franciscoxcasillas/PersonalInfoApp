@@ -10,12 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
+            Spacer()
             TitleView()
-                .padding(.bottom, 1)
             ProfileImageView()
             InfoSectionView()
             RemoteImageView()
+                .padding(25)
             ButtonView()
+            Spacer()
         }
     }
 }
